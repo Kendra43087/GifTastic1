@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Types of Houses</title>
+  <style type="text/css">
+    button,
+    div,
+    form,
+    input {
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+    <div class="container">
+    <h1>House Search</h1>
+
+    <div id="buttons-view"></div>
+
+
+    <form id="house-form">
+        <label for="house-input">Add a House</label>
+        <input type="text" id="house-input"><br>
+        <input id="add-house" type="submit" value="Add a house">
+    </form>   
+
+    <div id="houses-view"></div>
+
+    
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+    var houses = ["Ranch", "Cape Cod", "AFrame", "Bungalow"];
+
+
+     $("House-button").on("click", function() {
+
+    var house = $(this).attr("data-name");
+    var queryURL = "https://developers.giphy.com/explorer/s/?=" + house + "&y=&plot=short&apikey=kendra87";
+
+    $.ajax({
+    url: queryURL,
+    method: "GET"
+    })
+    
+      .then(function(response) {
+
+        var imageUrl = response.data.image_original_url;
+        var RanchImage = $("<img>");
+
+        RanchImage.attr("src", imageUrl);
+        RanchImage.attr("alt", "Ranch image");
+
+        $("#images").prepend(RanchImage);
+      }
+
+
+      .then(function(response) {
+
+        var imageUrl = response.data.image_original_url;
+        var AFrameImage = $("<img>");
+        AFrameImage.attr("src", imageUrl);
+        AFrameImage.attr("alt", "AFrame image");
+        $("#images").prepend(AFrameImage);
+      }
+
+
+      .then(function(response) {
+
+        var imageUrl = response.data.image_original_url;
+        var BungalowImage = $("<img>");
+        BungalowImage.attr("src", imageUrl);
+        BunglowImage.attr("alt", "Bungalow image");
+        $("#images").prepend(BungalowImage);
+
+      }
+
+
+      .then(function(response) {
+
+        var imageUrl = response.data.image_original_url;
+        var CapeCodImage = $("<img>");  
+        CapeCodImage.attr("src", imageUrl);
+        CapeCodImage.attr("alt", "CapeCod image");
+        $("#images").prepend(CapeCodImage);
+      });
+
+
+      function renderButtons() 
+        $("#buttons-view").empty();
+        for (var i = 0; i < houses.length; i++) {
+        var a = $("<button>");
+        
+        a.addClass("house");
+        a.attr("data-name", houses[i]);
+        a.text(houses[i]);
+        $("#buttons-view").append
+        
+        
+        $("#add-house").on("click", function(event) {
+        event.preventDefault();
+        var house = $("#house-input").val().trim();
+        houses.push(house);
+        renderButtons();
+      });
+
+        $(document).on("click", ".house", displayHouseInfo);  
+        renderButtons();
+
+   </script>
+  </div>
+</body>
+
+</html>
+
+
+
+
