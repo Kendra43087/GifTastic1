@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <title>Types of Houses</title>
+  <style type="text/css"></style>
+     
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="container">
+    <h1>House Search</h1>
+
+    <div id="buttons-view"></div>
+
+    <input id="Ranch" type="submit" value="Ranch">
+    <input id="Cape Cod" type="submit" value="Cape Cod">
+    <input id="AFrame" type="submit" value="AFrame">
+    <input id="Bungalow" type="submit" value="Bungalow">
+  
+    <form id="house-form">
+        <label for="house-input">Add a House</label>
+        <input type="text" id="house-input"><br>
+        <input id="add-house" type="submit" value="Add a house">
+    </form>   
+
+    <div id="houses-view"></div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+    var topics = ["Ranch", "Cape Cod", "AFrame", "Bungalow"];
+
+
+  $("House-button").on("click", function() {
+
+    var house = $(this).attr("data-name");
+
+    var queryURL = "https://developers.giphy.com/houses/api/js/?key=FvoTuOFGaAmmr66tZTJ6H1rFRLDCoxSu";
+    
+    var key = "FvoTuOFGaAmmr66tZTJ6H1rFRLDCoxSu";
+
+    function displayResults(json)
+    var topics = json.response.docs;
+
+
+
+   $.ajax({
+    url: queryURL,
+    method: "GET"
+    })
+    
+     
+      function renderButtons() 
+        $("#buttons-view").empty();
+        for (var i = 0; i < Ranch.length; i++) {
+        var a = $("<button>");
+        
+        a.addClass("house");
+        a.attr("data-name", Ranch[i]);
+        a.text(Ranch[i]);
+        $("#buttons-view").append
+        
+        
+        $("#add-house").on("click", function(event) {
+        event.preventDefault();
+        var house = $("#house-input").val().trim();
+        Ranch.push(house);
+        renderButtons();
+      });
+
+        $(document).on("click", ".house", displayRanchInfo);  
+        renderButtons();
+
+
+
+       function renderButtons() 
+        $("#buttons-view").empty();
+        for (var i = 0; i < Cape Cod.length; i++) {
+        var a = $("<button>");
+        
+        a.addClass("house");
+        a.attr("data-name",Cape Cod[i]);
+        a.text(Cape Cod[i]);
+        $("#buttons-view").append
+        
+        
+        $("#add-house").on("click", function(event) {
+        event.preventDefault();
+        var house = $("#house-input").val().trim();
+        Cape Cod.push(house);
+        renderButtons();
+      });
+
+        $(document).on("click", ".house", displayCapeCodInfo);  
+        renderButtons();
+
+
+
+      function renderButtons() 
+        $("#buttons-view").empty();
+        for (var i = 0; i < AFrame.length; i++) {
+        var a = $("<button>");
+        
+        a.addClass("house");
+        a.attr("data-name", AFrame[i]);
+        a.text(AFrame[i]);
+        $("#buttons-view").append
+        
+        
+        $("#add-house").on("click", function(event) {
+        event.preventDefault();
+        var house = $("#house-input").val().trim();
+        AFrame.push(house);
+        renderButtons();
+      });
+
+        $(document).on("click", ".house", displayAFrameInfo);  
+        renderButtons();
+
+      
+      function renderButtons() 
+        $("#buttons-view").empty();
+        for (var i = 0; i < Bungalow.length; i++) {
+        var a = $("<button>");
+        
+        a.addClass("house");
+        a.attr("data-name", Bungalow[i]);
+        a.text(Bungalow[i]);
+        $("#buttons-view").append
+        
+        
+        $("#add-house").on("click", function(event) {
+        event.preventDefault();
+        var house = $("#house-input").val().trim();
+        Bungalow.push(house);
+        renderButtons();
+      });
+
+        $(document).on("click", ".house", displayBungalowInfo);  
+        renderButtons();
+
+
+      function renderButtons() 
+        $("#buttons-view").empty();
+        for (var i = 0; i < houses.length; i++) {
+        var a = $("<button>");
+        
+        a.addClass("house");
+        a.attr("data-name", houses[i]);
+        a.text(houses[i]);
+        $("#buttons-view").append
+        
+        
+        $("#add-house").on("click", function(event) {
+        event.preventDefault();
+        var house = $("#house-input").val().trim();
+        houses.push(house);
+        renderButtons();
+      });
+
+        $(document).on("click", ".house", displayHouseInfo);  
+        renderButtons();
+
+   </script>
+  </div>
+</body>
+
+</html>
+
+
+
+
